@@ -75,11 +75,11 @@ Infect_average_500=mean([Infect_I_500_1;Infect_I_500_2;Infect_I_500_3;Infect_I_5
     Infect_I_500_11;Infect_I_500_12;Infect_I_500_13;Infect_I_500_14;Infect_I_500_15;Infect_I_500_16;Infect_I_500_17;Infect_I_500_18;Infect_I_500_19;Infect_I_500_20; ...
     Infect_I_500_21;Infect_I_500_22;Infect_I_500_23;Infect_I_500_24;Infect_I_500_25;Infect_I_500_26;Infect_I_500_27;Infect_I_500_28;Infect_I_500_29;Infect_I_500_30; ...
     Infect_I_500_31;Infect_I_500_32;Infect_I_500_33;Infect_I_500_34;Infect_I_500_35;Infect_I_500_36;Infect_I_500_37;Infect_I_500_38;Infect_I_500_39;Infect_I_500_40]);
-h4=plot(Beta1,Infect_average_500,'r*','LineWidth',3);%Ëæ»úÄ£Äâ
+h4=plot(Beta1,Infect_average_500,'r*','LineWidth',3);%Ã‹Ã¦Â»ÃºÃ„Â£Ã„Ã¢
 legend([h1,h2,h3,h4],'I=50','I=500','MC I=50','MC I=500','Location','NorthWest');
 xlabel('\beta_1');
 ylabel('I');
-%ÉèÖÃ±³¾°Í¸Ã÷
+%Ã‰Ã¨Ã–ÃƒÂ±Â³Â¾Â°ÃÂ¸ÃƒÃ·
 set(gca,'color','none');
 
 
