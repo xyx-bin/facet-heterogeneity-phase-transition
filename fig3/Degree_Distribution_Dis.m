@@ -1,31 +1,31 @@
 clear; clc
 N=2000;
-k1 = 20;   %Ò»½×Æ½¾ù¶È
-k2 = 6;%¶ş½×Æ½¾ù¶È
-%----------------------Éú³ÉÒ»½×¡¢¶ş½×µ¥´¿ĞÎµÄÁÚ½Ó¾ØÕó£¨¸ù¾İÒ»½×A1¡¢¶ş½×Æ½¾ù¶ÈÉú³ÉµÄÁÚ½Ó¾ØÕóA2£©------------------------------------------
-p1 = zeros(length(k2),1);   %´æ·ÅÁ½¸ö½ÚµãÖ®¼äÁ¬½ÓµÄ¸ÅÂÊµÄ25*1µÄ¾ØÕó
+k1 = 20;   %ä¸€é˜¶å¹³å‡åº¦
+k2 = 6;%äºŒé˜¶å¹³å‡åº¦
+%----------------------ç”Ÿæˆä¸€é˜¶ã€äºŒé˜¶å•çº¯å½¢çš„é‚»æ¥çŸ©é˜µï¼ˆæ ¹æ®ä¸€é˜¶A1ã€äºŒé˜¶å¹³å‡åº¦ç”Ÿæˆçš„é‚»æ¥çŸ©é˜µA2ï¼‰------------------------------------------
+p1 = zeros(length(k2),1);   %å­˜æ”¾ä¸¤ä¸ªèŠ‚ç‚¹ä¹‹é—´è¿æ¥çš„æ¦‚ç‡çš„25*1çš„çŸ©é˜µ
 p2 = zeros(length(k2),1);
 
 for m = 1:1:length(k2)
     k2 = k2(m);
-    p1 = (k1-2*k2)/((N-1)-2*k2);%ÈÎÒâÁ½¸ö½ÚµãÖ®¼äÁ¬½ÓµÄ¸ÅÂÊ
-    p2 = 2 * k2 / ((N-1)*(N-2));%ÈÎÒâÈı¸ö½Úµã¹¹³ÉÈı½ÇĞÎµÄ¸ÅÂÊ
+    p1 = (k1-2*k2)/((N-1)-2*k2);%ä»»æ„ä¸¤ä¸ªèŠ‚ç‚¹ä¹‹é—´è¿æ¥çš„æ¦‚ç‡
+    p2 = 2 * k2 / ((N-1)*(N-2));%ä»»æ„ä¸‰ä¸ªèŠ‚ç‚¹æ„æˆä¸‰è§’å½¢çš„æ¦‚ç‡
     
     p1(m) = p1;
     p2(m) = p2;
     
-    %Ò»½×µ¥´¿ĞÎ¡£´æ·Å¸ù¾İp1Éú³ÉµÄ¾ØÕó£¨¸ù¾İÒ»½×Æ½¾ù¶ÈÉú³ÉµÄÒ»½×µ¥´¿ĞÎµÄÁÚ½Ó¾ØÕóA1£©
+    %ä¸€é˜¶å•çº¯å½¢ã€‚å­˜æ”¾æ ¹æ®p1ç”Ÿæˆçš„çŸ©é˜µï¼ˆæ ¹æ®ä¸€é˜¶å¹³å‡åº¦ç”Ÿæˆçš„ä¸€é˜¶å•çº¯å½¢çš„é‚»æ¥çŸ©é˜µA1ï¼‰
     A1 = zeros(N,N);
     for i = 1:N
         for j =i+1:N
-            if rand<p1%²úÉú(0,1)¾ùÔÈ·Ö²¼ÖĞËæ»úµÃµ½µÄËæ»úÊı
-                A1(i,j)=1;%ÉÏÈı½Ç¾ØÕó(1,2),(1,3),(1,4)......(2,3),(2,4)......(N-1,N)
-                A1(j,i)=1;%ÏÂÈı½Ç¾ØÕó(2,1),(3,1),(4,1)......(3,2),(4,2)......(N,N-1)
+            if rand<p1%äº§ç”Ÿ(0,1)å‡åŒ€åˆ†å¸ƒä¸­éšæœºå¾—åˆ°çš„éšæœºæ•°
+                A1(i,j)=1;%ä¸Šä¸‰è§’çŸ©é˜µ(1,2),(1,3),(1,4)......(2,3),(2,4)......(N-1,N)
+                A1(j,i)=1;%ä¸‹ä¸‰è§’çŸ©é˜µ(2,1),(3,1),(4,1)......(3,2),(4,2)......(N,N-1)
             end
         end
     end
     
-    %¶ş½×µ¥´¿ĞÎ¡£¸ù¾İ¶ş½×Æ½¾ù¶ÈÉú³ÉµÄÁÚ½Ó¾ØÕóA2
+    %äºŒé˜¶å•çº¯å½¢ã€‚æ ¹æ®äºŒé˜¶å¹³å‡åº¦ç”Ÿæˆçš„é‚»æ¥çŸ©é˜µA2
     count_triad = 0;
     triad = [];
     for i =1:N
@@ -38,34 +38,34 @@ for m = 1:1:length(k2)
                     A1(k,i) = 1;
                     A1(k,j) = 1;
                     A1(j,k) = 1;
-                    triad = [triad;i,j,k];%¼ÇÂ¼×é³ÉÈı½ÇĞÎµÄ½Úµã(i,j,k)µÄÎ»ÖÃ£¬²¢ÇÒÊÇÒÔi½Úµã´ÓĞ¡µ½´óµÄË³ĞòÅÅÁĞµÄ(Ã»ÓĞÖØ¸´)
-                    count_triad = count_triad+1;%Èı½ÇĞÎµÄÊıÁ¿
+                    triad = [triad;i,j,k];%è®°å½•ç»„æˆä¸‰è§’å½¢çš„èŠ‚ç‚¹(i,j,k)çš„ä½ç½®ï¼Œå¹¶ä¸”æ˜¯ä»¥ièŠ‚ç‚¹ä»å°åˆ°å¤§çš„é¡ºåºæ’åˆ—çš„(æ²¡æœ‰é‡å¤)
+                    count_triad = count_triad+1;%ä¸‰è§’å½¢çš„æ•°é‡
                 end
             end
         end
     end
     
-    %¼ÆËãÍøÂçÉÏ¶ş½×µ¥´¿ĞÎµÄÁÚ½Ó¾ØÕó
+    %è®¡ç®—ç½‘ç»œä¸ŠäºŒé˜¶å•çº¯å½¢çš„é‚»æ¥çŸ©é˜µ
     incidence_2 = zeros(N,size(triad,1)); %  incidence matrix: nodes belonging to which triad (order 2/ 2-simplices edge)
-    %size(triad,1)·µ»Øtriad¾ØÕóµÄĞĞÊı(Èı½ÇĞÎµÄ¸öÊı)£»size(triad,2)·µ»Øtriad¾ØÕóµÄÁĞÊı£»
+    %size(triad,1)è¿”å›triadçŸ©é˜µçš„è¡Œæ•°(ä¸‰è§’å½¢çš„ä¸ªæ•°)ï¼›size(triad,2)è¿”å›triadçŸ©é˜µçš„åˆ—æ•°ï¼›
     for i =1:N
         [e,~] = find(triad==i);
         incidence_2(i,e) = 1;
-    end%µÚi¸ö½ÚµãÁ¬½ÓµÄÈı½ÇĞÎµÄ¸öÊı(Ö»¼ÇÁËÒ»´Î)£¿£¿£¿£¿£¿£¿£¿£¿£¿
+    end%ç¬¬iä¸ªèŠ‚ç‚¹è¿æ¥çš„ä¸‰è§’å½¢çš„ä¸ªæ•°(åªè®°äº†ä¸€æ¬¡)ï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿ
     A2 = incidence_2 * incidence_2';
-    A2 = A2 - diag(diag(A2)); %¶ş½×ÁÚ½Ó¾ØÕó£¬È·ÊµÊÇdiagÁËÁ½´Î£¬Ò»´ÎµÄ»°¶Ô½ÇÏßÉÏÓĞÔªËØ£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿
+    A2 = A2 - diag(diag(A2)); %äºŒé˜¶é‚»æ¥çŸ©é˜µï¼Œç¡®å®æ˜¯diagäº†ä¸¤æ¬¡ï¼Œä¸€æ¬¡çš„è¯å¯¹è§’çº¿ä¸Šæœ‰å…ƒç´ ï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿ
 end
-C=A1+A2;%A1ÊÇÒ»½×ÁÚ½Ó¾ØÕó£¬A2ÊÇ¶ş½×ÁÚ½Ó¾ØÕó£»CÊÇµ¥´¿¸´ĞÎÍøÂçµÄÁÚ½Ó¾ØÕó
+C=A1+A2;%A1æ˜¯ä¸€é˜¶é‚»æ¥çŸ©é˜µï¼ŒA2æ˜¯äºŒé˜¶é‚»æ¥çŸ©é˜µï¼›Cæ˜¯å•çº¯å¤å½¢ç½‘ç»œçš„é‚»æ¥çŸ©é˜µ
 
 
 %%
-%----------------------------------------------¶ş½×facetµÄ¶È·Ö²¼----------------------------------------------------
-%Ã¿¸ö½ÚµãÁ¬½ÓµÄÈı½ÇĞÎ£¨¶ş½×facet£©µÄ¸öÊı£¬¼´Îª¹ØÁª¾ØÕóµÄĞĞºÍ
-facet2_degree = sum(incidence_2~=0,2);%Ã¿ĞĞ·ÇÁãÔªËØµÄ¸öÊı
-uniqueDegree_2 = unique(facet2_degree);%ÕÒ³öÎ¨Ò»µÄÔªËØ£¨Ã¿¸ö½ÚµãÁ¬½ÓÈı½ÇĞÎµÄÊıÁ¿£©
-%¼ÆËã¶È·Ö²¼£¬NormalizationÉèÖÃÎªprobability±íÊ¾Ò»¸ÅÂÊĞÎÊ½¼ÆÊı
+%----------------------------------------------äºŒé˜¶facetçš„åº¦åˆ†å¸ƒ----------------------------------------------------
+%æ¯ä¸ªèŠ‚ç‚¹è¿æ¥çš„ä¸‰è§’å½¢ï¼ˆäºŒé˜¶facetï¼‰çš„ä¸ªæ•°ï¼Œå³ä¸ºå…³è”çŸ©é˜µçš„è¡Œå’Œ
+facet2_degree = sum(incidence_2~=0,2);%æ¯è¡Œéé›¶å…ƒç´ çš„ä¸ªæ•°
+uniqueDegree_2 = unique(facet2_degree);%æ‰¾å‡ºå”¯ä¸€çš„å…ƒç´ ï¼ˆæ¯ä¸ªèŠ‚ç‚¹è¿æ¥ä¸‰è§’å½¢çš„æ•°é‡ï¼‰
+%è®¡ç®—åº¦åˆ†å¸ƒï¼ŒNormalizationè®¾ç½®ä¸ºprobabilityè¡¨ç¤ºä¸€æ¦‚ç‡å½¢å¼è®¡æ•°
 degree2_Distribution = histcounts(facet2_degree,[uniqueDegree_2;max(uniqueDegree_2)+1],'Normalization','probability');
-%»æÖÆ¶È·Ö²¼
+%ç»˜åˆ¶åº¦åˆ†å¸ƒ
 bar(uniqueDegree_2,degree2_Distribution);
 xlabel('facet2 degree');
 ylabel('degree2 Distribution');
@@ -73,7 +73,7 @@ hold on;
 
 %%
 missing_values_2 = [];
-%ÕÒ³öuniqueDegree_2ÖĞÈ±Ê§µÄÖµ
+%æ‰¾å‡ºuniqueDegree_2ä¸­ç¼ºå¤±çš„å€¼
 for i = 2:length(uniqueDegree_2)
     if uniqueDegree_2(i) - uniqueDegree_2(i-1) > 1
         missing_values_2 = [missing_values_2, uniqueDegree_2(i-1)+1:uniqueDegree_2(i)-1];
@@ -83,7 +83,7 @@ if (uniqueDegree_2(1)==0)
     uniqueDegree_2_ult=uniqueDegree_2(2:end);
     degree2_Distribution_ult = degree2_Distribution(2:end);
 end
-%Èç¹ûÈ±Ê§£¬ÔòÔÚdegree2_DistributionÈ±Ê§µÄÎ»ÖÃ´¦Ìí¼Ó0
+%å¦‚æœç¼ºå¤±ï¼Œåˆ™åœ¨degree2_Distributionç¼ºå¤±çš„ä½ç½®å¤„æ·»åŠ 0
 if (~isempty(missing_values_2))
     for i=1:length(missing_values_2)
         uniqueDegree_2_ult=[uniqueDegree_2_ult(1:missing_values_2(i)-1); missing_values_2(i); uniqueDegree_2_ult(missing_values_2(i):end)];
@@ -93,8 +93,8 @@ end
 
 
 %%
-%----------------------------------------------Ò»½×facetµÄ¶È·Ö²¼----------------------------------------------------
-%²éÕÒÁ¬½Ó½ÚµãiµÄÈı½ÇĞÎÖĞ¹²ÓÃÒ»Ìõ±ßµÄ¸öÊı
+%----------------------------------------------ä¸€é˜¶facetçš„åº¦åˆ†å¸ƒ----------------------------------------------------
+%æŸ¥æ‰¾è¿æ¥èŠ‚ç‚¹içš„ä¸‰è§’å½¢ä¸­å…±ç”¨ä¸€æ¡è¾¹çš„ä¸ªæ•°
 repeat_edges_N = zeros(N,1);
 for i=1:N
     repeat_num=[0,0];
@@ -105,7 +105,7 @@ for i=1:N
         for k=1:j-1
             num = intersect(inc_i_triad(j,:),inc_i_triad(k,:));
             if (length(num)==2)
-                if(k==1)%Ã¿Ìí¼ÓÒ»¸öÈı½ÇĞÎµÚÒ»´Î±È½ÏµÄÊ±ºò£¬µ«·²ÓĞ¹«¹²±ßµÄ¾Í»á¼ÆÊı+1£»µÚ¶ş´ÎÒÔºó±È½ÏÓĞ¹«¹²±ßÔò²»+£¨·ñÔò»áÖØ¸´¼ÆÊı£©£»
+                if(k==1)%æ¯æ·»åŠ ä¸€ä¸ªä¸‰è§’å½¢ç¬¬ä¸€æ¬¡æ¯”è¾ƒçš„æ—¶å€™ï¼Œä½†å‡¡æœ‰å…¬å…±è¾¹çš„å°±ä¼šè®¡æ•°+1ï¼›ç¬¬äºŒæ¬¡ä»¥åæ¯”è¾ƒæœ‰å…¬å…±è¾¹åˆ™ä¸+ï¼ˆå¦åˆ™ä¼šé‡å¤è®¡æ•°ï¼‰ï¼›
                     repeat_edges_N(i) = repeat_edges_N(i)+1;
                     repeat_num = [repeat_num;num];
                 else if(ismember(num, repeat_num, 'rows')~=1)
@@ -118,14 +118,14 @@ for i=1:N
     end
 end
 
-% µ¥´¿¸´ĞÎÍøÂçÖĞ½ÚµãiµÄ¶ÈÎªµÚiĞĞ·ÇÁãÔªËØµÄ¸öÊı£¬¶ø²»ÊÇµÚiĞĞÔªËØÏà¼Ó
-incidence_1 = C_Adj_Inc(A1,0);%¼ÆËãÒ»½×ÁÚ½Ó¾ØÕóµÄ¹ØÁª¾ØÕó
-facet1_degree = sum(incidence_1~=0,2);%Ã¿ĞĞ·ÇÁãÔªËØµÄ¸öÊı
-%Ã¿¸ö½ÚµãÁ¬½ÓµÄµ¥±ßµÄÊıÁ¿£¨²»°üÀ¨Èı½ÇĞÎÖĞµÄ±ß£©
+% å•çº¯å¤å½¢ç½‘ç»œä¸­èŠ‚ç‚¹içš„åº¦ä¸ºç¬¬iè¡Œéé›¶å…ƒç´ çš„ä¸ªæ•°ï¼Œè€Œä¸æ˜¯ç¬¬iè¡Œå…ƒç´ ç›¸åŠ 
+incidence_1 = C_Adj_Inc(A1,0);%è®¡ç®—ä¸€é˜¶é‚»æ¥çŸ©é˜µçš„å…³è”çŸ©é˜µ
+facet1_degree = sum(incidence_1~=0,2);%æ¯è¡Œéé›¶å…ƒç´ çš„ä¸ªæ•°
+%æ¯ä¸ªèŠ‚ç‚¹è¿æ¥çš„å•è¾¹çš„æ•°é‡ï¼ˆä¸åŒ…æ‹¬ä¸‰è§’å½¢ä¸­çš„è¾¹ï¼‰
 for i=1:size(facet1_degree,1)
     facet1_degree(i) =  facet1_degree(i) + repeat_edges_N(i) - facet2_degree(i)*2;
 end
-uniqueDegree_1 = unique(facet1_degree);%ÕÒ³öÎ¨Ò»µÄÔªËØ
+uniqueDegree_1 = unique(facet1_degree);%æ‰¾å‡ºå”¯ä¸€çš„å…ƒç´ 
 degree1_Distribution = histcounts(facet1_degree,[uniqueDegree_1;max(uniqueDegree_1)+1],'Normalization','probability');
 figure;
 bar(uniqueDegree_1,degree1_Distribution);
@@ -133,7 +133,7 @@ xlabel('facet1 degree');
 ylabel('degree1 Distribution');
 %%
 missing_values_1 = [];
-%ÕÒ³öuniqueDegree_2ÖĞÈ±Ê§µÄÖµ
+%æ‰¾å‡ºuniqueDegree_2ä¸­ç¼ºå¤±çš„å€¼
 for i = 2:length(uniqueDegree_1)
     if uniqueDegree_1(i) - uniqueDegree_1(i-1) > 1
         missing_values_1 = [missing_values_1, uniqueDegree_1(i-1)+1:uniqueDegree_1(i)-1];
@@ -143,7 +143,7 @@ if (uniqueDegree_1(1)==0)
     uniqueDegree_1_ult=uniqueDegree_1(2:end);
     degree1_Distribution_ult = degree1_Distribution(2:end);
 end
-%Èç¹ûÈ±Ê§£¬ÔòÔÚdegree2_DistributionÈ±Ê§µÄÎ»ÖÃ´¦Ìí¼Ó0
+%å¦‚æœç¼ºå¤±ï¼Œåˆ™åœ¨degree2_Distributionç¼ºå¤±çš„ä½ç½®å¤„æ·»åŠ 0
 if (~isempty(missing_values_1))
     for i=1:length(missing_values_1)
         uniqueDegree_1_ult=[uniqueDegree_1_ult(1:missing_values_1(i)-1); missing_values_1(i); uniqueDegree_1_ult(missing_values_1(i):end)];
@@ -152,8 +152,8 @@ if (~isempty(missing_values_1))
 end
 
 %%
-%¼ÆËãÒ»Î¬ÃæºÍ¶şÎ¬ÃæµÄÁªºÏ¸ÅÂÊ·Ö²¼
-Com_num = zeros(length(uniqueDegree_2),length(uniqueDegree_1));%ÍøÂçµÄÁªºÏ¸ÅÂÊ·Ö²¼
+%è®¡ç®—ä¸€ç»´é¢å’ŒäºŒç»´é¢çš„è”åˆæ¦‚ç‡åˆ†å¸ƒ
+Com_num = zeros(length(uniqueDegree_2),length(uniqueDegree_1));%ç½‘ç»œçš„è”åˆæ¦‚ç‡åˆ†å¸ƒ
 for i=0:length(uniqueDegree_1)-1
     res = find(facet1_degree==i);
     temp = zeros(1,length(res));
@@ -163,7 +163,7 @@ for i=0:length(uniqueDegree_1)-1
     for j=0:length(uniqueDegree_2)-1
         num=0;
         if(find(temp==j))
-            num = num + histcounts(temp,[j-0.5,j+0.5]);%¼ÆËãÊı×éÖĞÄ³¸öÊı×Ö³öÏÖµÄ´ÎÊı
+            num = num + histcounts(temp,[j-0.5,j+0.5]);%è®¡ç®—æ•°ç»„ä¸­æŸä¸ªæ•°å­—å‡ºç°çš„æ¬¡æ•°
         end
         Com_num(j+1,i+1)=num/N;
     end
