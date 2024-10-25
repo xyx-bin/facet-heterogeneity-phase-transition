@@ -2,21 +2,21 @@ clear;
 clc;
 
 load('Degree_Distribution.mat');
-M=max(uniqueDegree_1);%Ò»½×facetµÄ×î´ó¶È
-N=max(uniqueDegree_2);%¶ş½×facetµÄ×î´ó¶È
-M1=length(uniqueDegree_1);%Ò»Î¬ÃæµÄ³¤¶È
-N1=length(uniqueDegree_2);%¶şÎ¬ÃæµÄ³¤¶È
+M=max(uniqueDegree_1);%ä¸€é˜¶facetçš„æœ€å¤§åº¦
+N=max(uniqueDegree_2);%äºŒé˜¶facetçš„æœ€å¤§åº¦
+M1=length(uniqueDegree_1);%ä¸€ç»´é¢çš„é•¿åº¦
+N1=length(uniqueDegree_2);%äºŒç»´é¢çš„é•¿åº¦
 X0=zeros(1,2*M1*N1);
-S0=1900; I0=100;%³õÊ¼Ê±¿ÌËùÓĞÒ×¸ĞÕßºÍËùÓĞ¸ĞÈ¾ÕßµÄÃÜ¶È
+S0=1900; I0=100;%åˆå§‹æ—¶åˆ»æ‰€æœ‰æ˜“æ„Ÿè€…å’Œæ‰€æœ‰æ„ŸæŸ“è€…çš„å¯†åº¦
 %X(0)=[S00,I00,S01,I01,S02,I02,...,S0N1,I0N1,...,SM10,IM10,SM11,IM11,...,SM1N1,IM1N1]
-for i=1:M1 %i´ú±íÒ»Î¬Ãæ
-    for j=1:N1 %j´ú±í¶şÎ¬Ãæ
+for i=1:M1 %iä»£è¡¨ä¸€ç»´é¢
+    for j=1:N1 %jä»£è¡¨äºŒç»´é¢
         X0(2*(i-1)*N1+2*j-1)=S0*Com_num(j,i);
         X0(2*(i-1)*N1+2*j)=I0*Com_num(j,i);
     end
 end
 [T11,X1]=ode45(@SIS, [0 300] ,X0);
-%°ÑÃ¿¸öÊ±¿ÌµÄËùÓĞI¼ÓÆğÀ´
+%æŠŠæ¯ä¸ªæ—¶åˆ»çš„æ‰€æœ‰IåŠ èµ·æ¥
 I1=[];
 for i=1:length(T11)
     sum=0;
@@ -31,21 +31,21 @@ clear;
 clc;
 
 load('Degree_Distribution.mat');
-M=max(uniqueDegree_1);%Ò»½×facetµÄ×î´ó¶È
-N=max(uniqueDegree_2);%¶ş½×facetµÄ×î´ó¶È
-M1=length(uniqueDegree_1);%Ò»Î¬ÃæµÄ³¤¶È
-N1=length(uniqueDegree_2);%¶şÎ¬ÃæµÄ³¤¶È
+M=max(uniqueDegree_1);%ä¸€é˜¶facetçš„æœ€å¤§åº¦
+N=max(uniqueDegree_2);%äºŒé˜¶facetçš„æœ€å¤§åº¦
+M1=length(uniqueDegree_1);%ä¸€ç»´é¢çš„é•¿åº¦
+N1=length(uniqueDegree_2);%äºŒç»´é¢çš„é•¿åº¦
 X0=zeros(1,2*M1*N1);
-S0=1800; I0=200;%³õÊ¼Ê±¿ÌËùÓĞÒ×¸ĞÕßºÍËùÓĞ¸ĞÈ¾ÕßµÄÃÜ¶È
+S0=1800; I0=200;%åˆå§‹æ—¶åˆ»æ‰€æœ‰æ˜“æ„Ÿè€…å’Œæ‰€æœ‰æ„ŸæŸ“è€…çš„å¯†åº¦
 %X(0)=[S00,I00,S01,I01,S02,I02,...,S0N1,I0N1,...,SM10,IM10,SM11,IM11,...,SM1N1,IM1N1]
-for i=1:M1 %i´ú±íÒ»Î¬Ãæ
-    for j=1:N1 %j´ú±í¶şÎ¬Ãæ
+for i=1:M1 %iä»£è¡¨ä¸€ç»´é¢
+    for j=1:N1 %jä»£è¡¨äºŒç»´é¢
         X0(2*(i-1)*N1+2*j-1)=S0*Com_num(j,i);
         X0(2*(i-1)*N1+2*j)=I0*Com_num(j,i);
     end
 end
 [T12,X1]=ode45(@SIS, [0 300] ,X0);
-%°ÑÃ¿¸öÊ±¿ÌµÄËùÓĞI¼ÓÆğÀ´
+%æŠŠæ¯ä¸ªæ—¶åˆ»çš„æ‰€æœ‰IåŠ èµ·æ¥
 I2=[];
 for i=1:length(T12)
     sum=0;
@@ -60,21 +60,21 @@ clear;
 clc;
 
 load('Degree_Distribution.mat');
-M=max(uniqueDegree_1);%Ò»½×facetµÄ×î´ó¶È
-N=max(uniqueDegree_2);%¶ş½×facetµÄ×î´ó¶È
-M1=length(uniqueDegree_1);%Ò»Î¬ÃæµÄ³¤¶È
-N1=length(uniqueDegree_2);%¶şÎ¬ÃæµÄ³¤¶È
+M=max(uniqueDegree_1);%ä¸€é˜¶facetçš„æœ€å¤§åº¦
+N=max(uniqueDegree_2);%äºŒé˜¶facetçš„æœ€å¤§åº¦
+M1=length(uniqueDegree_1);%ä¸€ç»´é¢çš„é•¿åº¦
+N1=length(uniqueDegree_2);%äºŒç»´é¢çš„é•¿åº¦
 X0=zeros(1,2*M1*N1);
-S0=1600; I0=400;%³õÊ¼Ê±¿ÌËùÓĞÒ×¸ĞÕßºÍËùÓĞ¸ĞÈ¾ÕßµÄÃÜ¶È
+S0=1600; I0=400;%åˆå§‹æ—¶åˆ»æ‰€æœ‰æ˜“æ„Ÿè€…å’Œæ‰€æœ‰æ„ŸæŸ“è€…çš„å¯†åº¦
 %X(0)=[S00,I00,S01,I01,S02,I02,...,S0N1,I0N1,...,SM10,IM10,SM11,IM11,...,SM1N1,IM1N1]
-for i=1:M1 %i´ú±íÒ»Î¬Ãæ
-    for j=1:N1 %j´ú±í¶şÎ¬Ãæ
+for i=1:M1 %iä»£è¡¨ä¸€ç»´é¢
+    for j=1:N1 %jä»£è¡¨äºŒç»´é¢
         X0(2*(i-1)*N1+2*j-1)=S0*Com_num(j,i);
         X0(2*(i-1)*N1+2*j)=I0*Com_num(j,i);
     end
 end
 [T13,X1]=ode45(@SIS, [0 300] ,X0);
-%°ÑÃ¿¸öÊ±¿ÌµÄËùÓĞI¼ÓÆğÀ´
+%æŠŠæ¯ä¸ªæ—¶åˆ»çš„æ‰€æœ‰IåŠ èµ·æ¥
 I3=[];
 for i=1:length(T13)
     sum=0;
@@ -89,21 +89,21 @@ clear;
 clc;
 
 load('Degree_Distribution.mat');
-M=max(uniqueDegree_1);%Ò»½×facetµÄ×î´ó¶È
-N=max(uniqueDegree_2);%¶ş½×facetµÄ×î´ó¶È
-M1=length(uniqueDegree_1);%Ò»Î¬ÃæµÄ³¤¶È
-N1=length(uniqueDegree_2);%¶şÎ¬ÃæµÄ³¤¶È
+M=max(uniqueDegree_1);%ä¸€é˜¶facetçš„æœ€å¤§åº¦
+N=max(uniqueDegree_2);%äºŒé˜¶facetçš„æœ€å¤§åº¦
+M1=length(uniqueDegree_1);%ä¸€ç»´é¢çš„é•¿åº¦
+N1=length(uniqueDegree_2);%äºŒç»´é¢çš„é•¿åº¦
 X0=zeros(1,2*M1*N1);
-S0=1400; I0=600;%³õÊ¼Ê±¿ÌËùÓĞÒ×¸ĞÕßºÍËùÓĞ¸ĞÈ¾ÕßµÄÃÜ¶È
+S0=1400; I0=600;%åˆå§‹æ—¶åˆ»æ‰€æœ‰æ˜“æ„Ÿè€…å’Œæ‰€æœ‰æ„ŸæŸ“è€…çš„å¯†åº¦
 %X(0)=[S00,I00,S01,I01,S02,I02,...,S0N1,I0N1,...,SM10,IM10,SM11,IM11,...,SM1N1,IM1N1]
-for i=1:M1 %i´ú±íÒ»Î¬Ãæ
-    for j=1:N1 %j´ú±í¶şÎ¬Ãæ
+for i=1:M1 %iä»£è¡¨ä¸€ç»´é¢
+    for j=1:N1 %jä»£è¡¨äºŒç»´é¢
         X0(2*(i-1)*N1+2*j-1)=S0*Com_num(j,i);
         X0(2*(i-1)*N1+2*j)=I0*Com_num(j,i);
     end
 end
 [T14,X1]=ode45(@SIS, [0 300] ,X0);
-%°ÑÃ¿¸öÊ±¿ÌµÄËùÓĞI¼ÓÆğÀ´
+%æŠŠæ¯ä¸ªæ—¶åˆ»çš„æ‰€æœ‰IåŠ èµ·æ¥
 I4=[];
 for i=1:length(T14)
     sum=0;
@@ -118,21 +118,21 @@ clear;
 clc;
 
 load('Degree_Distribution.mat');
-M=max(uniqueDegree_1);%Ò»½×facetµÄ×î´ó¶È
-N=max(uniqueDegree_2);%¶ş½×facetµÄ×î´ó¶È
-M1=length(uniqueDegree_1);%Ò»Î¬ÃæµÄ³¤¶È
-N1=length(uniqueDegree_2);%¶şÎ¬ÃæµÄ³¤¶È
+M=max(uniqueDegree_1);%ä¸€é˜¶facetçš„æœ€å¤§åº¦
+N=max(uniqueDegree_2);%äºŒé˜¶facetçš„æœ€å¤§åº¦
+M1=length(uniqueDegree_1);%ä¸€ç»´é¢çš„é•¿åº¦
+N1=length(uniqueDegree_2);%äºŒç»´é¢çš„é•¿åº¦
 X0=zeros(1,2*M1*N1);
-S0=1200; I0=800;%³õÊ¼Ê±¿ÌËùÓĞÒ×¸ĞÕßºÍËùÓĞ¸ĞÈ¾ÕßµÄÃÜ¶È
+S0=1200; I0=800;%åˆå§‹æ—¶åˆ»æ‰€æœ‰æ˜“æ„Ÿè€…å’Œæ‰€æœ‰æ„ŸæŸ“è€…çš„å¯†åº¦
 %X(0)=[S00,I00,S01,I01,S02,I02,...,S0N1,I0N1,...,SM10,IM10,SM11,IM11,...,SM1N1,IM1N1]
-for i=1:M1 %i´ú±íÒ»Î¬Ãæ
-    for j=1:N1 %j´ú±í¶şÎ¬Ãæ
+for i=1:M1 %iä»£è¡¨ä¸€ç»´é¢
+    for j=1:N1 %jä»£è¡¨äºŒç»´é¢
         X0(2*(i-1)*N1+2*j-1)=S0*Com_num(j,i);
         X0(2*(i-1)*N1+2*j)=I0*Com_num(j,i);
     end
 end
 [T15,X1]=ode45(@SIS, [0 300] ,X0);
-%°ÑÃ¿¸öÊ±¿ÌµÄËùÓĞI¼ÓÆğÀ´
+%æŠŠæ¯ä¸ªæ—¶åˆ»çš„æ‰€æœ‰IåŠ èµ·æ¥
 I5=[];
 for i=1:length(T15)
     sum=0;
@@ -147,21 +147,21 @@ clear;
 clc;
 
 load('Degree_Distribution.mat');
-M=max(uniqueDegree_1);%Ò»½×facetµÄ×î´ó¶È
-N=max(uniqueDegree_2);%¶ş½×facetµÄ×î´ó¶È
-M1=length(uniqueDegree_1);%Ò»Î¬ÃæµÄ³¤¶È
-N1=length(uniqueDegree_2);%¶şÎ¬ÃæµÄ³¤¶È
+M=max(uniqueDegree_1);%ä¸€é˜¶facetçš„æœ€å¤§åº¦
+N=max(uniqueDegree_2);%äºŒé˜¶facetçš„æœ€å¤§åº¦
+M1=length(uniqueDegree_1);%ä¸€ç»´é¢çš„é•¿åº¦
+N1=length(uniqueDegree_2);%äºŒç»´é¢çš„é•¿åº¦
 X0=zeros(1,2*M1*N1);
-S0=1000; I0=1000;%³õÊ¼Ê±¿ÌËùÓĞÒ×¸ĞÕßºÍËùÓĞ¸ĞÈ¾ÕßµÄÃÜ¶È
+S0=1000; I0=1000;%åˆå§‹æ—¶åˆ»æ‰€æœ‰æ˜“æ„Ÿè€…å’Œæ‰€æœ‰æ„ŸæŸ“è€…çš„å¯†åº¦
 %X(0)=[S00,I00,S01,I01,S02,I02,...,S0N1,I0N1,...,SM10,IM10,SM11,IM11,...,SM1N1,IM1N1]
-for i=1:M1 %i´ú±íÒ»Î¬Ãæ
-    for j=1:N1 %j´ú±í¶şÎ¬Ãæ
+for i=1:M1 %iä»£è¡¨ä¸€ç»´é¢
+    for j=1:N1 %jä»£è¡¨äºŒç»´é¢
         X0(2*(i-1)*N1+2*j-1)=S0*Com_num(j,i);
         X0(2*(i-1)*N1+2*j)=I0*Com_num(j,i);
     end
 end
 [T16,X1]=ode45(@SIS, [0 300] ,X0);
-%°ÑÃ¿¸öÊ±¿ÌµÄËùÓĞI¼ÓÆğÀ´
+%æŠŠæ¯ä¸ªæ—¶åˆ»çš„æ‰€æœ‰IåŠ èµ·æ¥
 I6=[];
 for i=1:length(T16)
     sum=0;
@@ -176,21 +176,21 @@ clear;
 clc;
 
 load('Degree_Distribution.mat');
-M=max(uniqueDegree_1);%Ò»½×facetµÄ×î´ó¶È
-N=max(uniqueDegree_2);%¶ş½×facetµÄ×î´ó¶È
-M1=length(uniqueDegree_1);%Ò»Î¬ÃæµÄ³¤¶È
-N1=length(uniqueDegree_2);%¶şÎ¬ÃæµÄ³¤¶È
+M=max(uniqueDegree_1);%ä¸€é˜¶facetçš„æœ€å¤§åº¦
+N=max(uniqueDegree_2);%äºŒé˜¶facetçš„æœ€å¤§åº¦
+M1=length(uniqueDegree_1);%ä¸€ç»´é¢çš„é•¿åº¦
+N1=length(uniqueDegree_2);%äºŒç»´é¢çš„é•¿åº¦
 X0=zeros(1,2*M1*N1);
-S0=800; I0=1200;%³õÊ¼Ê±¿ÌËùÓĞÒ×¸ĞÕßºÍËùÓĞ¸ĞÈ¾ÕßµÄÃÜ¶È
+S0=800; I0=1200;%åˆå§‹æ—¶åˆ»æ‰€æœ‰æ˜“æ„Ÿè€…å’Œæ‰€æœ‰æ„ŸæŸ“è€…çš„å¯†åº¦
 %X(0)=[S00,I00,S01,I01,S02,I02,...,S0N1,I0N1,...,SM10,IM10,SM11,IM11,...,SM1N1,IM1N1]
-for i=1:M1 %i´ú±íÒ»Î¬Ãæ
-    for j=1:N1 %j´ú±í¶şÎ¬Ãæ
+for i=1:M1 %iä»£è¡¨ä¸€ç»´é¢
+    for j=1:N1 %jä»£è¡¨äºŒç»´é¢
         X0(2*(i-1)*N1+2*j-1)=S0*Com_num(j,i);
         X0(2*(i-1)*N1+2*j)=I0*Com_num(j,i);
     end
 end
 [T17,X1]=ode45(@SIS, [0 300] ,X0);
-%°ÑÃ¿¸öÊ±¿ÌµÄËùÓĞI¼ÓÆğÀ´
+%æŠŠæ¯ä¸ªæ—¶åˆ»çš„æ‰€æœ‰IåŠ èµ·æ¥
 I7=[];
 for i=1:length(T17)
     sum=0;
@@ -205,21 +205,21 @@ clear;
 clc;
 
 load('Degree_Distribution.mat');
-M=max(uniqueDegree_1);%Ò»½×facetµÄ×î´ó¶È
-N=max(uniqueDegree_2);%¶ş½×facetµÄ×î´ó¶È
-M1=length(uniqueDegree_1);%Ò»Î¬ÃæµÄ³¤¶È
-N1=length(uniqueDegree_2);%¶şÎ¬ÃæµÄ³¤¶È
+M=max(uniqueDegree_1);%ä¸€é˜¶facetçš„æœ€å¤§åº¦
+N=max(uniqueDegree_2);%äºŒé˜¶facetçš„æœ€å¤§åº¦
+M1=length(uniqueDegree_1);%ä¸€ç»´é¢çš„é•¿åº¦
+N1=length(uniqueDegree_2);%äºŒç»´é¢çš„é•¿åº¦
 X0=zeros(1,2*M1*N1);
-S0=600; I0=1400;%³õÊ¼Ê±¿ÌËùÓĞÒ×¸ĞÕßºÍËùÓĞ¸ĞÈ¾ÕßµÄÃÜ¶È
+S0=600; I0=1400;%åˆå§‹æ—¶åˆ»æ‰€æœ‰æ˜“æ„Ÿè€…å’Œæ‰€æœ‰æ„ŸæŸ“è€…çš„å¯†åº¦
 %X(0)=[S00,I00,S01,I01,S02,I02,...,S0N1,I0N1,...,SM10,IM10,SM11,IM11,...,SM1N1,IM1N1]
-for i=1:M1 %i´ú±íÒ»Î¬Ãæ
-    for j=1:N1 %j´ú±í¶şÎ¬Ãæ
+for i=1:M1 %iä»£è¡¨ä¸€ç»´é¢
+    for j=1:N1 %jä»£è¡¨äºŒç»´é¢
         X0(2*(i-1)*N1+2*j-1)=S0*Com_num(j,i);
         X0(2*(i-1)*N1+2*j)=I0*Com_num(j,i);
     end
 end
 [T18,X1]=ode45(@SIS, [0 300] ,X0);
-%°ÑÃ¿¸öÊ±¿ÌµÄËùÓĞI¼ÓÆğÀ´
+%æŠŠæ¯ä¸ªæ—¶åˆ»çš„æ‰€æœ‰IåŠ èµ·æ¥
 I8=[];
 for i=1:length(T18)
     sum=0;
@@ -234,21 +234,21 @@ clear;
 clc;
 
 load('Degree_Distribution.mat');
-M=max(uniqueDegree_1);%Ò»½×facetµÄ×î´ó¶È
-N=max(uniqueDegree_2);%¶ş½×facetµÄ×î´ó¶È
-M1=length(uniqueDegree_1);%Ò»Î¬ÃæµÄ³¤¶È
-N1=length(uniqueDegree_2);%¶şÎ¬ÃæµÄ³¤¶È
+M=max(uniqueDegree_1);%ä¸€é˜¶facetçš„æœ€å¤§åº¦
+N=max(uniqueDegree_2);%äºŒé˜¶facetçš„æœ€å¤§åº¦
+M1=length(uniqueDegree_1);%ä¸€ç»´é¢çš„é•¿åº¦
+N1=length(uniqueDegree_2);%äºŒç»´é¢çš„é•¿åº¦
 X0=zeros(1,2*M1*N1);
-S0=400; I0=1600;%³õÊ¼Ê±¿ÌËùÓĞÒ×¸ĞÕßºÍËùÓĞ¸ĞÈ¾ÕßµÄÃÜ¶È
+S0=400; I0=1600;%åˆå§‹æ—¶åˆ»æ‰€æœ‰æ˜“æ„Ÿè€…å’Œæ‰€æœ‰æ„ŸæŸ“è€…çš„å¯†åº¦
 %X(0)=[S00,I00,S01,I01,S02,I02,...,S0N1,I0N1,...,SM10,IM10,SM11,IM11,...,SM1N1,IM1N1]
-for i=1:M1 %i´ú±íÒ»Î¬Ãæ
-    for j=1:N1 %j´ú±í¶şÎ¬Ãæ
+for i=1:M1 %iä»£è¡¨ä¸€ç»´é¢
+    for j=1:N1 %jä»£è¡¨äºŒç»´é¢
         X0(2*(i-1)*N1+2*j-1)=S0*Com_num(j,i);
         X0(2*(i-1)*N1+2*j)=I0*Com_num(j,i);
     end
 end
 [T19,X1]=ode45(@SIS, [0 300] ,X0);
-%°ÑÃ¿¸öÊ±¿ÌµÄËùÓĞI¼ÓÆğÀ´
+%æŠŠæ¯ä¸ªæ—¶åˆ»çš„æ‰€æœ‰IåŠ èµ·æ¥
 I9=[];
 for i=1:length(T19)
     sum=0;
@@ -263,21 +263,21 @@ clear;
 clc;
 
 load('Degree_Distribution.mat');
-M=max(uniqueDegree_1);%Ò»½×facetµÄ×î´ó¶È
-N=max(uniqueDegree_2);%¶ş½×facetµÄ×î´ó¶È
-M1=length(uniqueDegree_1);%Ò»Î¬ÃæµÄ³¤¶È
-N1=length(uniqueDegree_2);%¶şÎ¬ÃæµÄ³¤¶È
+M=max(uniqueDegree_1);%ä¸€é˜¶facetçš„æœ€å¤§åº¦
+N=max(uniqueDegree_2);%äºŒé˜¶facetçš„æœ€å¤§åº¦
+M1=length(uniqueDegree_1);%ä¸€ç»´é¢çš„é•¿åº¦
+N1=length(uniqueDegree_2);%äºŒç»´é¢çš„é•¿åº¦
 X0=zeros(1,2*M1*N1);
-S0=200; I0=1800;%³õÊ¼Ê±¿ÌËùÓĞÒ×¸ĞÕßºÍËùÓĞ¸ĞÈ¾ÕßµÄÃÜ¶È
+S0=200; I0=1800;%åˆå§‹æ—¶åˆ»æ‰€æœ‰æ˜“æ„Ÿè€…å’Œæ‰€æœ‰æ„ŸæŸ“è€…çš„å¯†åº¦
 %X(0)=[S00,I00,S01,I01,S02,I02,...,S0N1,I0N1,...,SM10,IM10,SM11,IM11,...,SM1N1,IM1N1]
-for i=1:M1 %i´ú±íÒ»Î¬Ãæ
-    for j=1:N1 %j´ú±í¶şÎ¬Ãæ
+for i=1:M1 %iä»£è¡¨ä¸€ç»´é¢
+    for j=1:N1 %jä»£è¡¨äºŒç»´é¢
         X0(2*(i-1)*N1+2*j-1)=S0*Com_num(j,i);
         X0(2*(i-1)*N1+2*j)=I0*Com_num(j,i);
     end
 end
 [T110,X1]=ode45(@SIS, [0 300] ,X0);
-%°ÑÃ¿¸öÊ±¿ÌµÄËùÓĞI¼ÓÆğÀ´
+%æŠŠæ¯ä¸ªæ—¶åˆ»çš„æ‰€æœ‰IåŠ èµ·æ¥
 I10=[];
 for i=1:length(T110)
     sum=0;
