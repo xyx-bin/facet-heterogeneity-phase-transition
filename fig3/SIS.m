@@ -1,26 +1,26 @@
 function f=SIS(t,x)
-%¶¨Òå²ÎÊı£¬È«²¿Ç÷ÓÚÕıÆ½ºâµã
+%å®šä¹‰å‚æ•°ï¼Œå…¨éƒ¨è¶‹äºæ­£å¹³è¡¡ç‚¹
 beta1=0.005625;
-beta2=0.0625;%²»Ó°Ïì·ÖÖ§
+beta2=0.0625;%ä¸å½±å“åˆ†æ”¯
 gamma=0.15;
 
 load('Degree_Distribution.mat');
 
-M=max(uniqueDegree_1);%Ò»½×facetµÄ×î´ó¶È
-N=max(uniqueDegree_2);%¶ş½×facetµÄ×î´ó¶È
+M=max(uniqueDegree_1);%ä¸€é˜¶facetçš„æœ€å¤§åº¦
+N=max(uniqueDegree_2);%äºŒé˜¶facetçš„æœ€å¤§åº¦
 
-%Ò»Î¬ÃæµÄ³¤¶È
+%ä¸€ç»´é¢çš„é•¿åº¦
 M1=length(uniqueDegree_1);
-%¶şÎ¬ÃæµÄ³¤¶È
+%äºŒç»´é¢çš„é•¿åº¦
 N1=length(uniqueDegree_2);
 
-averagek_1=mean(facet1_degree(:));%Ò»½×facetµÄÆ½¾ù¶È
-averagek_2=mean(facet2_degree(:));%¶ş½×facetµÄÆ½¾ù¶È
+averagek_1=mean(facet1_degree(:));%ä¸€é˜¶facetçš„å¹³å‡åº¦
+averagek_2=mean(facet2_degree(:));%äºŒé˜¶facetçš„å¹³å‡åº¦
 
-f=zeros(2*M1*N1,1);%¸ø2*M*N¸ö·½³Ì·ÖÅä¿Õ¼ä
+f=zeros(2*M1*N1,1);%ç»™2*M*Nä¸ªæ–¹ç¨‹åˆ†é…ç©ºé—´
 
 %%
-%¼ÆËã¦¨_1
+%è®¡ç®—Î˜_1
 sum_1=0;
 for i=1:M1
     I_s=0;%I(i,1)+I(i,2)+...+I(i,N1)
@@ -34,7 +34,7 @@ for i=1:M1
     sum_1=sum_1+(uniqueDegree_1(i)*degree1_Distribution(i))*(I_s/N_s);
 end
 theta_1=sum_1/averagek_1;
-%¼ÆËã¦¨_2
+%è®¡ç®—Î˜_2
 sum_2=0;
 for i=1:N1
     I_n=0; %I(1,i)+I(2,i)+...+I(M,i)
@@ -49,14 +49,14 @@ for i=1:N1
 end
 theta_2=sum_2/averagek_2;
 %%
-fprintf('µÚ%fÊ±¿Ì',t)
+fprintf('ç¬¬%fæ—¶åˆ»',t)
 for i=1:M1
     for j=1:N1
         f(2*(i-1)*N1+2*j-1) = -beta1*uniqueDegree_1(i)*theta_1*x(2*(i-1)*N1+2*j-1)-2*beta1*uniqueDegree_2(j)*theta_2*x(2*(i-1)*N1+2*j-1)-beta2*uniqueDegree_2(j)*theta_2^2*x(2*(i-1)*N1+2*j-1)+gamma*x(2*(i-1)*N1+2*j);
         f(2*(i-1)*N1+2*j) =  beta1*uniqueDegree_1(i)*theta_1*x(2*(i-1)*N1+2*j-1)+2*beta1*uniqueDegree_2(j)*theta_2*x(2*(i-1)*N1+2*j-1)+beta2*uniqueDegree_2(j)*theta_2^2*x(2*(i-1)*N1+2*j-1)-gamma*x(2*(i-1)*N1+2*j);
     end
 end
-fprintf('2MNÎ¬µÄÊı¾İÒÑÉú³É!\n')
+fprintf('2MNç»´çš„æ•°æ®å·²ç”Ÿæˆ!\n')
 
 
 
